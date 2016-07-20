@@ -12,7 +12,7 @@ module.exports = {
   ],
   output: {
     path: path.join(__dirname, '/dist/'),
-    filename: '[name].js',
+    filename: 'bundle.js',
     publicPath: '/'
   },
   plugins: [
@@ -43,8 +43,8 @@ module.exports = {
       test: /\.css$/,
       loader: 'style!css'
     }, { 
-      test: /\.jpe?g$|\.gif$|\.png$/i, 
-      loader: 'file-loader?name=/img/[name].[ext]' 
+     test: /\.(png|jpg)$/, 
+     loader: 'file-loader?name=/img/[name].[ext]' 
     }
     ]
   }
