@@ -1,0 +1,60 @@
+body {
+  background: #ECEFF1;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0 auto;
+  padding: 30px; 
+  max-width: 980px; 
+}
+
+.progress {
+  background-color: #FFECB3;
+}
+.progress .indeterminate {
+    background-color: #FFC107;
+}
+
+.switch-label {
+  border-bottom: solid #FFC107;
+}
+
+
+.state-card-on {
+  color: black;
+  background: #FFC107;  
+}
+
+.state-card-off {
+  color: white;  
+}
+
+.card-title-with-img {
+  display: inline-block;
+  width: 100%;
+}
+
+.float-right-side {
+  float: right;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-content {
+  min-height: 500px;
+}
+
+
+textarea {
+  min-height: 400px;
+}
+
+.btn {
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+}

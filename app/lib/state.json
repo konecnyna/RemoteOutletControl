@@ -1,0 +1,37 @@
+[
+    {
+        "alias": "ALL",
+        "state": "0",
+        "owner": "nick"
+    },
+    {
+        "alias": "Bar Lights",
+        "state": "0",
+        "owner": "all"
+    },
+    {
+        "alias": "fan",
+        "state": "0",
+        "owner": "nick"
+    },
+    {
+        "alias": "Living room AC",
+        "state": "0",
+        "owner": "all"
+    },
+    {
+        "alias": "bedroom lights",
+        "state": 1,
+        "owner": "nick"
+    },
+    {
+        "alias": "null",
+        "state": 1,
+        "owner": "nick"
+    },
+    {
+        "alias": "Desk Light",
+        "state": 1,
+        "owner": "nick"
+    }
+]

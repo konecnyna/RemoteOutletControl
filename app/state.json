@@ -1,0 +1,51 @@
+[
+    {
+        "alias": "All Outlets",
+        "state": "0",
+        "outlet_number": "0",
+        "owner": "nick",
+        "hidden": false
+    },
+    {
+        "alias": "Bar Lights",
+        "state": "0",
+        "outlet_number": "1",
+        "owner": "all",
+        "hidden": false
+    },
+    {
+        "alias": "Fan",
+        "state": "0",
+        "outlet_number": "2",
+        "owner": "nick",
+        "hidden": false
+    },
+    {
+        "alias": "Living Room AC",
+        "state": "0",
+        "outlet_number": "3",
+        "owner": "all",
+        "hidden": false
+    },
+    {
+        "alias": "Bedroom Lights",
+        "state": "0",
+        "outlet_number": "4",
+        "owner": "nick",
+        "hidden": false
+    },
+    {
+        "alias": "Misc",
+        "state": "0",
+        "outlet_number": "5",
+        "owner": "nick",
+        "hidden": false
+    },
+    {
+        "alias": "Desk Light",
+        "state": "0",
+        "outlet_number": "6",
+        "owner": "nick",
+        "hidden": false
+    }
+]
