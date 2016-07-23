@@ -25,7 +25,7 @@ export default class Outlet extends Component {
           <span className="card-title">
             <div className="card-title-with-img">            
                 {this.props.alias}                     
-            <img src={require(".  /bulb.png")} height="32px" className={parseInt(this.props.state) === 0 ? 'hidden' : 'float-right-side'}/>
+            <img src={require('./bulb.png')} height="32px" className={parseInt(this.props.state) === 0 ? 'hidden' : 'float-right-side'}/>
             </div>
           </span>                    
         </div>

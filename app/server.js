@@ -9,8 +9,8 @@ const express = require('express');
 var app = express();
 
 var path = require('path');
-const isDeveloping = true;
-const port = isDeveloping ? 3000 : process.env.PORT;
+const isDeveloping = false;
+const port = isDeveloping ? 3000 : 3000;
 
 
 if (isDeveloping) {
