@@ -1,5 +1,6 @@
 Radio controlled outlets.
-----
+===========
+
 This project is a complete package for controlling radio AC outlets with Node and Python. All documentation is in the respective directory, see below.
 
 Getting started.
