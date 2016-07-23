@@ -2,7 +2,7 @@
   "name": "remote-outlet-control",
   "version": "0.1.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "keywords": [
     "express",
     "webpack",

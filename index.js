@@ -18,10 +18,16 @@ var pythonFile =  DEBUG ? 'test.py'  : 'ac_outlet_control.py';
 
 
 var method = RemoteOutletControl.prototype;
+function RemoteOutletControl(app, route) {
+    if (route) {
+        ROOT_PATH = route;
+    } else {
+        ROOT_PATH = "/";
+    }
+    
+    console.log("running on:" + ROOT_PATH);
 
-function RemoteOutletControl(app) {
-
-    app.use("/", express.static(path.join(__dirname, 'app/dist'))); 
+    app.use(ROOT_PATH, express.static(path.join(__dirname, 'app/dist'))); 
 
     app.get("/api/v1/state", function(req, res) {
         jsonHelper.getJSON(res, null);
@@ -109,6 +115,4 @@ function RemoteOutletControl(app) {
     }
 
 }
-
-
 module.exports = RemoteOutletControl;
