@@ -4,8 +4,7 @@ var imgSrc = './bulb.png';
 export default class Outlet extends Component {  
   constructor(props) {
     super(props);    
-    this.state = {is_loading: false};
-    console.log(imgSrc, "construct");    
+    this.state = {is_loading: false};    
   }
 
   componentWillReceiveProps(nextProps) {
@@ -17,8 +16,11 @@ export default class Outlet extends Component {
     this.props.updateState(outlet_state);
   }  
 
-  render() {    
-    
+  render() {
+    if (this.props.alias === "null") {
+      return null;
+    }
+
     return (
       <div className='card blue-grey darken-1 state-card-off'>
         <div className={parseInt(this.props.state) === 0 ? 'card-content state-card-off' : 'card-content  state-card-on'}>

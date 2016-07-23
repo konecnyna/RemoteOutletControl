@@ -57,7 +57,6 @@ function RemoteOutletControl(app) {
 
 
     app.post('/api/v1/update_outlets', function(req, res) {
-        console.log(req.body);
         try {
             messageObject = JSON.parse(req.body.outlets);
             jsonfile.writeFile(jsonHelper.jsonFileName, messageObject, function(err) {
@@ -94,8 +93,8 @@ function RemoteOutletControl(app) {
 
         var pyshell = new PythonShell(pythonFile, options);
         pyshell.end(function(err) {
-            console.log(err);
-            //if (err) throw err;
+            console.log("error", err);
+            
             jsonArray = jsonHelper.getJSON(null, function(jsonArray) {
                 jsonHelper.updateJSONStates(outlet, state, jsonArray, function(json_data) {
                     callback(json_data);

@@ -10,13 +10,13 @@ export default class OutletList extends Component {
     this.state = {
       data: []
     };
+    
     this.loadState();
   }
 
 
 
   loadState() {
-
     $.ajax({
       url: "/state",
       dataType: 'json',
@@ -51,8 +51,7 @@ export default class OutletList extends Component {
         this.setState({data: data});        
       }.bind(this),
       error: function(xhr, status, err) {
-        Materialize.toast('Something went wrong! Error: ' + err, 4000);
-        // this.state.data[index].is_loading = false;        
+        Materialize.toast('Something went wrong! Error: ' + err, 4000);        
       }.bind(this)
     });    
   }        
