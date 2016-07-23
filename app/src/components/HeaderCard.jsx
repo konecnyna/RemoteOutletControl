@@ -12,7 +12,7 @@ export default class HeaderCard extends Component {
 
   loadWeather() {
     $.ajax({
-      url: '/weather',
+      url: '/api/v1/weather',
       dataType: 'json',
       cache: false,
       success: function(data) {        

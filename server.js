@@ -2,7 +2,7 @@
 const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-const config = require('./webpack.config.js');
+const config = require('./app/webpack.config.js');
 var OutletControl = require('./index.js');
 
 const express = require('express');

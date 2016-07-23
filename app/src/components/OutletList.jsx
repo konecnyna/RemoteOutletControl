@@ -18,7 +18,7 @@ export default class OutletList extends Component {
 
   loadState() {
     $.ajax({
-      url: "/state",
+      url: "/api/v1/state",
       dataType: 'json',
       cache: false,
       success: function(data) {
@@ -37,7 +37,7 @@ export default class OutletList extends Component {
   updateState(index, outlet, state) {      
     
     $.ajax({
-      url: '/updateJSON',
+      url: '/api/v1/updateJSON',
       dataType: 'json',
       cache: false,
       data: {

@@ -4,12 +4,13 @@ var jsonfile = require('jsonfile');
 var seqqueue = require('seq-queue');
 var fs = require('fs');
 var path = require('path');
+var express = require('express');
 
-var weather = require('./lib/weather.js');
-var jsonHelper = require('./lib/jsonHelper.js');
+var weather = require('./app/lib/weather.js');
+var jsonHelper = require('./app/lib/jsonHelper.js');
 var queue = seqqueue.createQueue(1000);
 
-var DEBUG = true;
+var DEBUG = false;
 
 var localPath = path.join(__dirname, '../python/');
 var pythonFile =  DEBUG ? 'test.py'  : 'ac_outlet_control.py';
@@ -19,17 +20,20 @@ var pythonFile =  DEBUG ? 'test.py'  : 'ac_outlet_control.py';
 var method = RemoteOutletControl.prototype;
 
 function RemoteOutletControl(app) {
-    app.get("/state", function(req, res) {
+
+    app.use("/", express.static(path.join(__dirname, 'app/dist'))); 
+
+    app.get("/api/v1/state", function(req, res) {
         jsonHelper.getJSON(res, null);
     });
 
-    app.get("/weather", function(req, res) {
+    app.get("/api/v1/weather", function(req, res) {
         weather.getForecastIOWeather(function(data) {
             res.json(data);
         });
     });
 
-    app.get("/updateJSON", function(req, res) {
+    app.get("/api/v1/updateJSON", function(req, res) {
 
         var outlet = req.param('outlet_number');
         var state = parseInt(req.param('state'));
