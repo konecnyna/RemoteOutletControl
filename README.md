@@ -6,7 +6,8 @@ Getting started.
 ---
 1. Run `npm install` in the `app` folder.
 2. npm start (for development)
-        1. This can also be installed as a node dependency.  
+
+This can also be installed as a node dependency.  
 
 <img src="https://github.com/konecnyna/RemoteOutletControl/blob/master/screenshots/web.png" width="400" />
 
