@@ -12,7 +12,7 @@ var queue = seqqueue.createQueue(1000);
 
 var DEBUG = false;
 
-var localPath = path.join(__dirname, '../python/');
+var localPath = path.join(__dirname, 'python/');
 var pythonFile =  DEBUG ? 'test.py'  : 'ac_outlet_control.py';
 
 
@@ -24,10 +24,10 @@ function RemoteOutletControl(app, route) {
     } else {
         ROOT_PATH = "/";
     }
-    
+
     console.log("running on:" + ROOT_PATH);
 
-    app.use(ROOT_PATH, express.static(path.join(__dirname, 'app/dist'))); 
+    app.use(ROOT_PATH, express.static(path.join(__dirname, 'app/dist')));
 
     app.get("/api/v1/state", function(req, res) {
         jsonHelper.getJSON(res, null);
@@ -104,7 +104,7 @@ function RemoteOutletControl(app, route) {
         var pyshell = new PythonShell(pythonFile, options);
         pyshell.end(function(err) {
             console.log("error", err);
-            
+
             jsonArray = jsonHelper.getJSON(null, function(jsonArray) {
                 jsonHelper.updateJSONStates(outlet, state, jsonArray, function(json_data) {
                     callback(json_data);
