@@ -32,6 +32,7 @@ body {
 .card-title-with-img {
   display: inline-block;
   width: 100%;
+  font-size: 32px;
 }
 
 .float-right-side {
@@ -57,4 +58,16 @@ textarea {
 
 .center {
   text-align: center;
+}
+
+.toggle-buttons {
+  font-size: 32px;
+}
+
+.off-button {
+  float: right;
+}
+
+.card-action {
+  height: 105px;
 }

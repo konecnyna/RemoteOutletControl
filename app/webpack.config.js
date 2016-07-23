@@ -7,7 +7,6 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   devtool: 'eval-source-map',
   entry: [
-    'webpack-hot-middleware/client?reload=true',
     path.join(__dirname, 'src/main.js')
   ],
   output: {
@@ -42,10 +41,8 @@ module.exports = {
     }, {
       test: /\.css$/,
       loader: 'style!css'
-    }, { 
-     test: /\.(png|jpg)$/, 
-     loader: 'file-loader?name=/img/[name].[ext]' 
-    }
+    },
+    { test: /\.(png|jpg|jpeg|gif|woff)$/, loader: 'url-loader?limit=8192' },
     ]
   }
 };

@@ -6,17 +6,17 @@
     },
     {
         "alias": "Bar Lights",
-        "state": "0",
+        "state": 0,
         "owner": "all"
     },
     {
         "alias": "fan",
-        "state": "0",
+        "state": 1,
         "owner": "nick"
     },
     {
         "alias": "Living room AC",
-        "state": "0",
+        "state": 1,
         "owner": "all"
     },
     {
@@ -26,12 +26,12 @@
     },
     {
         "alias": "null",
-        "state": 1,
+        "state": 0,
         "owner": "nick"
     },
     {
         "alias": "Desk Light",
-        "state": 1,
+        "state": 0,
         "owner": "nick"
     }
 ]

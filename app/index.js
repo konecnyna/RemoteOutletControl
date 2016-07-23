@@ -3,24 +3,17 @@ var path = require('path');
 var jsonfile = require('jsonfile');
 var seqqueue = require('seq-queue');
 var fs = require('fs');
-
-
+var path = require('path');
 
 var weather = require('./lib/weather.js');
 var jsonHelper = require('./lib/jsonHelper.js');
-
 var queue = seqqueue.createQueue(1000);
-var debug = false;
-var localPath = '/home/pi/Github/rpi_ac_outlet_control/python';
-var pythonFile = 'ac_outlet_control.py';
-var credsFile = '/home/pi/Github/rpi_ac_outlet_control/web/creds.dat';
 
+var DEBUG = true;
 
-if (debug) {
-    localPath = '/Users/Nick/Github/rpi_ac_outlet_control/python';
-    pythonFile = 'test.py';
-    credsFile = 'creds.dat';
-}
+var localPath = path.join(__dirname, '../python/');
+var pythonFile =  DEBUG ? 'test.py'  : 'ac_outlet_control.py';
+
 
 
 var method = RemoteOutletControl.prototype;

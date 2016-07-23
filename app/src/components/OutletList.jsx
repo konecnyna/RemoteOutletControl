@@ -9,10 +9,14 @@ export default class OutletList extends Component {
 
     this.state = {
       data: []
-    }    
+    };
+    this.loadState();
   }
 
+
+
   loadState() {
+
     $.ajax({
       url: "/state",
       dataType: 'json',
@@ -21,9 +25,7 @@ export default class OutletList extends Component {
         data.map(function(outlet, i) {
           data[i].is_loading = false;  
         },this);
-      
-        
-        console.log("loaded state");
+                  
         this.setState({data: data});
       }.bind(this),
       error: function(xhr, status, err) {
@@ -32,9 +34,8 @@ export default class OutletList extends Component {
     });
   }
 
-  updateState(index, outlet, state) {
-    this.state.data[index].is_loading = true;
-  
+  updateState(index, outlet, state) {      
+    
     $.ajax({
       url: '/updateJSON',
       dataType: 'json',
@@ -44,34 +45,31 @@ export default class OutletList extends Component {
         state: state
       },
       success: function(data) { 
-        data[index].state = state;
-        this.setState({data: data});                        
+        data.map(function(outlet, i) {
+          data[i].is_loading = false;  
+        },this);        
+        this.setState({data: data});        
       }.bind(this),
       error: function(xhr, status, err) {
         Materialize.toast('Something went wrong! Error: ' + err, 4000);
-        this.state.data[index].is_loading = false;        
+        // this.state.data[index].is_loading = false;        
       }.bind(this)
     });    
-  }
-
-  componentDidMount() {
-    this.loadState();
-    setInterval(this.loadState, 1000*30);      
-  }
-        
+  }        
 
 
   render() {    
     return (
       <div>
         {this.state.data.map(function(outlet, i) {
-          var boundClick = this.updateState.bind(this, i, outlet);                  
+          var boundClick = this.updateState.bind(this, i, outlet);
+          
           return (
             <Outlet updateState={boundClick} 
               alias={outlet.alias} 
               is_loading={outlet.is_loading} 
               state={outlet.state} 
-              outlet_number={outlet.outlet_number} 
+              outlet_number={i} 
               key={'item' + i}              
               /> 
           );

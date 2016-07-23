@@ -8,7 +8,8 @@ var OutletControl = require('./index.js');
 const express = require('express');
 var app = express();
 
-const isDeveloping = process.env.NODE_ENV !== 'production';
+var path = require('path');
+const isDeveloping = true;
 const port = isDeveloping ? 3000 : process.env.PORT;
 
 
@@ -30,7 +31,7 @@ if (isDeveloping) {
     app.use(middleware);
     app.use(webpackHotMiddleware(compiler));
 } else {
-    app.use(express.static(path.join(__dirname, 'public')));
+    app.use(express.static(path.join(__dirname, 'dist')));
 }
 
 
