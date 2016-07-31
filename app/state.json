@@ -7,7 +7,7 @@
         "hidden": false
     },
     {
-        "alias": "Bar Lights",
+        "alias": "Air conditioner",
         "state": "0",
         "outlet_number": "1",
         "owner": "all",
@@ -21,14 +21,14 @@
         "hidden": false
     },
     {
-        "alias": "Living Room AC",
+        "alias": "Living Room Lamp",
         "state": "0",
         "outlet_number": "3",
         "owner": "all",
         "hidden": false
     },
     {
-        "alias": "Bedroom Lights",
+        "alias": "Bedroom light",
         "state": "0",
         "outlet_number": "4",
         "owner": "nick",
@@ -42,7 +42,7 @@
         "hidden": false
     },
     {
-        "alias": "Desk Light",
+        "alias": "Spotlight lamp",
         "state": "0",
         "outlet_number": "6",
         "owner": "nick",
