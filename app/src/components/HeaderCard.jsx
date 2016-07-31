@@ -39,7 +39,7 @@ export default class HeaderCard extends Component {
     return(
         <div className="card">
             <div className="card-image">
-              <img src={'https://images.webcamgalore.com/5943-current-webcam-New-York-City-New-York.jpg?' + (new Date()).getTime()} />
+              <img src={'http://cam.sheratontribecaview.com/sheraton-tribeca-new-york-hotel.jpg?' + (new Date()).getTime()} />
               <span className="card-title">                
               </span>              
             </div>
