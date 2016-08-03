@@ -1,3 +1,5 @@
+<img src="https://github.com/konecnyna/RemoteOutletControl/blob/master/screenshots/web.png" width="320" align="right" hspace="20" />
+
 Radio controlled outlets.
 ===========
 
@@ -9,11 +11,6 @@ Getting started.
 2. npm start (for development)
 
 This can also be installed as a node dependency.  
-
-<img src="https://github.com/konecnyna/RemoteOutletControl/blob/master/screenshots/web.png" width="400" />
-
-
-
 
 
 
