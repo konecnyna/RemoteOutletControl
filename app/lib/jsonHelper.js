@@ -14,7 +14,7 @@ module.exports = {
   },
 };
 
-var initJson = [  
+var initJson = [
     {
         "alias": "All Outlets",
         "state": "0",
@@ -23,43 +23,43 @@ var initJson = [
         "hidden": false
     },
     {
-        "alias": "Air conditioner",
-        "state": "0",
+        "alias": "null",
+        "state": 1,
         "outlet_number": "1",
         "owner": "all",
         "hidden": false
     },
     {
-        "alias": "Fan",
-        "state": "0",
+        "alias": "Spotlight",
+        "state": 1,
         "outlet_number": "2",
         "owner": "nick",
         "hidden": false
     },
     {
         "alias": "Living Room Lamp",
-        "state": "0",
+        "state": 1,
         "outlet_number": "3",
         "owner": "all",
         "hidden": false
     },
     {
         "alias": "Bedroom light",
-        "state": "0",
+        "state": 1,
         "outlet_number": "4",
         "owner": "nick",
         "hidden": false
     },
     {
-        "alias": "Misc",
-        "state": "0",
+        "alias": "null",
+        "state": 1,
         "outlet_number": "5",
         "owner": "nick",
         "hidden": false
     },
     {
-        "alias": "Spotlight lamp",
-        "state": "0",
+        "alias": "Living room lamp",
+        "state": 1,
         "outlet_number": "6",
         "owner": "nick",
         "hidden": false
