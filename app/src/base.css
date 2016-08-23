@@ -71,3 +71,15 @@ textarea {
 .card-action {
   height: 105px;
 }
+
+.card-image-height {
+  height: 335px;
+}
+
+.center-cropped {
+  height: 335px;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+

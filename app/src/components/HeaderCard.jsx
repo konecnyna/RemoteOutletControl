@@ -63,10 +63,17 @@ export default class HeaderCard extends Component {
   }
  
   render() {  
+    var imgUrl = "http://cam.sheratontribecaview.com/sheraton-tribeca-new-york-hotel.jpg?" + (new Date()).getTime();
+    var headerImageBackground = {      
+      backgroundImage: 'url(' + imgUrl + ')'
+    };
+    
     return(
         <div className="card">
-            <div className="card-image">
-              <img src={'http://cam.sheratontribecaview.com/sheraton-tribeca-new-york-hotel.jpg?' + (new Date()).getTime()} />
+            <div className="card-image card-image-height">
+              <div className="center-cropped" style={headerImageBackground}>
+              </div>
+              
               <span className="card-title">                
               </span>              
             </div>
