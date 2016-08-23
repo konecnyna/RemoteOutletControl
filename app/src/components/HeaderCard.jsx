@@ -38,7 +38,7 @@ export default class HeaderCard extends Component {
 
   loadHomeWeather() {
     $.ajax({
-      url: 'https://project-3654207232474154346.firebaseio.com/weather.json',
+      url: 'https://project-3654207232474154346.firebaseio.com/weather.json?limitToLast=1&orderBy="$key"',
       dataType: 'json',
       cache: false,
       success: function(data) {        
