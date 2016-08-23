@@ -73,12 +73,12 @@ textarea {
 }
 
 .card-image-height {
-  height: 335px;
+  height: 250px;
 }
 
 .center-cropped {
-  height: 335px;
-  background-position: bottom;
+  height: 250px;
+  background-position: 55% 70%;
   background-repeat: no-repeat;
 }
 
