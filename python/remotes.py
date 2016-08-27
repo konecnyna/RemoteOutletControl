@@ -1,7 +1,11 @@
-# Python 3.4+
-
+################################################
+# From amazon: 
+# Bye Bye Standby Wireless Remote 
+# https://www.amazon.com/gp/product/B00F4AQKRI
+################################################
 class ByeBye():
 	NAME = "byebye"
+
 	SIGNAL_SEND_ATTEMPTS = 30	
 	SHORT_DELAY_ON = 330
 	SHORT_DELAY_OFF = 900
@@ -9,7 +13,7 @@ class ByeBye():
 	LONG_DELAY_OFF = 305
 	SIGNAL_BEGIN = 2000
 	
-	#SIGNAL CONSTS
+	# Wave forms
 	BASE_WAVE_FORM = [0,1,1,0,1,1,1,0,1,1,0,0,1,1,1,0,1,0,0,1]
 	OUTLET_MAP = {
 		0: [0,0,1,0],
@@ -24,6 +28,12 @@ class ByeBye():
 	def createSignal(self, outlet, state):
 		return self.BASE_WAVE_FORM + [state] + self.OUTLET_MAP[outlet]
 
+
+################################################
+# From amazon: 
+# Etekcity Wireless Remote Control Electrical Outlet Switc
+# https://www.amazon.com/gp/product/B00DQELHBS
+################################################
 class Zap:
 	NAME = "zap"
 	
@@ -34,6 +44,8 @@ class Zap:
 	LONG_DELAY_OFF = 247
 	SIGNAL_BEGIN = 6113
 	
+
+	# Wave forms
 	BASE_WAVE_FORM = [0,0,0,1,0,1,0,1,0,1]
 	BASE_ON_TAIL = [0,0,1,1,0]
 	BASE_OFF_TAIL = [1,1,0,0,0]
