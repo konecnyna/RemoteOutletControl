@@ -9,7 +9,7 @@ const express = require('express');
 var app = express();
 
 var path = require('path');
-const isDeveloping = false;
+const isDeveloping = true;
 const port = isDeveloping ? 3000 : 3000;
 
 

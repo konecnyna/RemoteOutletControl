@@ -11,9 +11,9 @@ export default class Outlet extends Component {
     this.setState({is_loading: false});
   }
 
-  outletRequest(outlet_state) {
+  outletRequest(state) {
     this.setState({is_loading: true});
-    this.props.updateState();
+    this.props.updateState(state);
   }  
 
   render() {

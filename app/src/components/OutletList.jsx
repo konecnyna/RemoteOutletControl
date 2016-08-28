@@ -12,9 +12,7 @@ export default class OutletList extends Component {
     };
     
     this.loadState();
-  }
-
-
+  }consol
 
   loadState() {
     $.ajax({
@@ -34,24 +32,22 @@ export default class OutletList extends Component {
     });
   }
 
-  updateState(type, index, outlet, state) {      
-    
+  updateState(index, outlet, state) {      
     $.ajax({
       url: '/api/v1/updateJSON',
       dataType: 'json',
       cache: false,
       data: {
-        type: type
-        outlet_number: index,
+        type: outlet.type,
+        outlet_number: outlet.outlet_number,
         state: state
       },
       success: function(data) { 
-        data.map(function(outlet, i) {
-          data[i].is_loading = false;  
-        },this);        
-        this.setState({data: data});        
+        this.setState({...this.state.data});
+
       }.bind(this),
-      error: function(xhr, status, err) {
+      error: function(xhr, status, err) {  
+        this.setState({...this.state.data})        
         Materialize.toast('Something went wrong! Error: ' + err, 4000);        
       }.bind(this)
     });    

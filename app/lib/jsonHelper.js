@@ -16,6 +16,7 @@ module.exports = {
 
 var initJson = [
     {
+        "type": "byebye",
         "alias": "All Outlets",
         "state": "0",
         "outlet_number": "0",
@@ -23,43 +24,49 @@ var initJson = [
         "hidden": false
     },
     {
+        "type": "byebye",
         "alias": "null",
-        "state": 1,
+        "state": 0,
         "outlet_number": "1",
         "owner": "all",
         "hidden": false
     },
     {
+        "type": "byebye",
         "alias": "Spotlight",
-        "state": 1,
+        "state": 0,
         "outlet_number": "2",
         "owner": "nick",
         "hidden": false
     },
     {
-        "alias": "Living Room Lamp",
-        "state": 1,
+        "type": "zap",
+        "alias": "Air Conditioner",
+        "state": 0,
         "outlet_number": "3",
         "owner": "all",
         "hidden": false
     },
     {
+        "type": "byebye",
         "alias": "Bedroom light",
-        "state": 1,
+        "state": 0,
         "outlet_number": "4",
         "owner": "nick",
         "hidden": false
     },
     {
+        "type": "byebye",
         "alias": "null",
-        "state": 1,
+        "state": 0,
         "outlet_number": "5",
         "owner": "nick",
         "hidden": false
     },
     {
-        "alias": "Living room lamp",
-        "state": 1,
+        "type": "byebye",
+        "alias": "Living lamp",
+        "state": 0,
         "outlet_number": "6",
         "owner": "nick",
         "hidden": false
@@ -68,12 +75,13 @@ var initJson = [
 
 
 function updateJSONStates(outlet, state, jsonArray, callback){
+  
   if (parseInt(outlet) === 0) {
     for (var i=1; i<jsonArray.length; i++) {
       jsonArray[i].state = state;	
     }
 	} else {
-		jsonArray[outlet].state = state;
+		jsonArray[outlet].state = state;    
 	}
 
 	updateJSONFile(jsonArray);
