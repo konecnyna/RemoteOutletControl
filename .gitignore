@@ -38,3 +38,6 @@ jspm_packages
 
 
 .DS_Store
+._.DS_Store
+
+*.pyc

@@ -34,13 +34,14 @@ export default class OutletList extends Component {
     });
   }
 
-  updateState(index, outlet, state) {      
+  updateState(type, index, outlet, state) {      
     
     $.ajax({
       url: '/api/v1/updateJSON',
       dataType: 'json',
       cache: false,
       data: {
+        type: type
         outlet_number: index,
         state: state
       },
@@ -69,6 +70,7 @@ export default class OutletList extends Component {
               is_loading={outlet.is_loading} 
               state={outlet.state} 
               outlet_number={i} 
+              type={outlet.type}
               key={'item' + i}              
               /> 
           );

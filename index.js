@@ -43,10 +43,12 @@ function RemoteOutletControl(app, route) {
 
         var outlet = req.param('outlet_number');
         var state = parseInt(req.param('state'));
-        if (outlet && (state === 0 || state === 1)) {
+        var type = req.param('type');
+
+        if (outlet && (state === 0 || state === 1) && type) {
             queue.push(
                 function(task) {
-                    runPythonScript(outlet, state, function(data) {
+                    runPythonScript(outlet, state, type, function(data) {
                         res.send(data);
                         task.done();
                     });
@@ -71,7 +73,7 @@ function RemoteOutletControl(app, route) {
             messageObject = JSON.parse(req.body.outlets);
             jsonfile.writeFile(jsonHelper.jsonFileName, messageObject, function(err) {
                 if (err) {
-                    console.error("error: " + err);
+                    console.error("error BLAH: " + err);
                     res.status(400);
                     res.json({
                         error: err
@@ -93,12 +95,12 @@ function RemoteOutletControl(app, route) {
     });
 
 
-    function runPythonScript(outlet, state, callback) {
+    function runPythonScript(outlet, state, type, callback) {
         var PythonShell = require('python-shell');
         var options = {
             scriptPath: localPath,
             mode: 'text',
-            args: [outlet, state]
+            args: [type, outlet, state]
         };
 
         var pyshell = new PythonShell(pythonFile, options);

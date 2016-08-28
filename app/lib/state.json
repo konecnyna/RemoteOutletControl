@@ -1,5 +1,6 @@
 [
     {
+        "type": "byebye",
         "alias": "All Outlets",
         "state": "0",
         "outlet_number": "0",
@@ -7,6 +8,7 @@
         "hidden": false
     },
     {
+        "type": "byebye",
         "alias": "null",
         "state": "0",
         "outlet_number": "1",
@@ -14,6 +16,7 @@
         "hidden": false
     },
     {
+        "type": "byebye",
         "alias": "Spotlight",
         "state": "0",
         "outlet_number": "2",
@@ -21,6 +24,7 @@
         "hidden": false
     },
     {
+        "type": "byebye",
         "alias": "Air Conditioner",
         "state": "0",
         "outlet_number": "3",
@@ -28,13 +32,15 @@
         "hidden": false
     },
     {
+        "type": "byebye",
         "alias": "Bedroom light",
-        "state": "0",
+        "state": 1,
         "outlet_number": "4",
         "owner": "nick",
         "hidden": false
     },
     {
+        "type": "byebye",
         "alias": "null",
         "state": "0",
         "outlet_number": "5",
@@ -42,6 +48,7 @@
         "hidden": false
     },
     {
+        "type": "byebye",
         "alias": "Living lamp",
         "state": "0",
         "outlet_number": "6",

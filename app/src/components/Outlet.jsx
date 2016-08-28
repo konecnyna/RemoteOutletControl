@@ -13,7 +13,7 @@ export default class Outlet extends Component {
 
   outletRequest(outlet_state) {
     this.setState({is_loading: true});
-    this.props.updateState(outlet_state);
+    this.props.updateState();
   }  
 
   render() {
@@ -34,7 +34,6 @@ export default class Outlet extends Component {
         <div className={parseInt(this.props.state) === 1 && !this.props.is_loading ? "card-action state-card-on" : "card-action state-card-off"}>
           {this.state.is_loading ?
             <div className="progress">
-            asdkasdkas
               <div className="indeterminate yellow-spinner"></div>
             </div>
             : 
