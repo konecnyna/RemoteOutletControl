@@ -20,10 +20,6 @@ export default class OutletList extends Component {
       dataType: 'json',
       cache: false,
       success: function(data) {
-        data.map(function(outlet, i) {
-          data[i].is_loading = false;  
-        },this);
-                  
         this.setState({data: data});
       }.bind(this),
       error: function(xhr, status, err) {
@@ -43,7 +39,7 @@ export default class OutletList extends Component {
         state: state
       },
       success: function(data) { 
-        this.setState({...this.state.data});
+        this.setState({data: data});
 
       }.bind(this),
       error: function(xhr, status, err) {  
