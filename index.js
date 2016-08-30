@@ -94,22 +94,24 @@ function RemoteOutletControl(app, route) {
 
 
     function runPythonScript(outlet, state, type, callback) {
-        var PythonShell = require('python-shell');
-        var options = {
-            scriptPath: localPath,
-            mode: 'text',
-            args: [type, outlet, state]
-        };
+        jsonHelper.getJSON(null, function(jsonArray) {
+            var PythonShell = require('python-shell');
+            var options = {
+                scriptPath: localPath,
+                mode: 'text',
+                args: [type, jsonArray[outlet].outlet_number, state]
+            };
 
-        var pyshell = new PythonShell(pythonFile, options);
-        pyshell.end(function(err) {            
-            jsonArray = jsonHelper.getJSON(null, function(jsonArray) {
-                jsonHelper.updateJSONStates(outlet, state, jsonArray, function(json_data) {
-                    callback(json_data);
-                });
+            var pyshell = new PythonShell(pythonFile, options);
+            pyshell.end(function(err) {
 
             });
+    
+            jsonHelper.updateJSONStates(outlet, state, jsonArray, function(json_data) {
+                callback(json_data);
+            });
         });
+        
     }
 
 }
