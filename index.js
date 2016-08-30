@@ -99,9 +99,7 @@ function RemoteOutletControl(app, route) {
 
 
     function runPythonScript(outlet, state, type, callback) {
-        console.log("ptyo");
         jsonHelper.getJSON(null, function(jsonArray) {
-            console.log("HAIII");
             var PythonShell = require('python-shell');
             var options = {
                 scriptPath: localPath,

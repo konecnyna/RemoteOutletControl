@@ -75,12 +75,11 @@ var initJson = {
 function updateJSONStates(key, state, jsonArray, callback){
   
   if (key === "all") {
-    for (var i=1; i<jsonArray.length; i++) {
-      if (jsonArray[i].type === "byebye") {
-        jsonArray[i].state = state;   
+    Object.keys(jsonArray).map(function(key){
+      if (jsonArray[key].type === "byebye") {
+        jsonArray[key].state = state;   
       }
-      
-    }
+    });    
 	} else {
     jsonArray[key].state = state;    
 	}
