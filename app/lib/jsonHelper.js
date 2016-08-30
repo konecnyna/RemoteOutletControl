@@ -14,8 +14,9 @@ module.exports = {
   },
 };
 
-var initJson = [
-    {
+var initJson = {
+    "all": {
+        "key": "all",
         "type": "byebye",
         "alias": "All Outlets",
         "state": "0",
@@ -23,23 +24,17 @@ var initJson = [
         "owner": "nick",
         "hidden": false
     },
-    {
-        "type": "byebye",
-        "alias": "null",
-        "state": 0,
-        "outlet_number": "1",
-        "owner": "all",
-        "hidden": false
-    },
-    {
-        "type": "byebye",
+    "spotlight": {
+        "key": "spotlight",
+        "type": "zap",
         "alias": "Spotlight",
         "state": 0,
         "outlet_number": "2",
         "owner": "nick",
         "hidden": false
     },
-    {
+    "ac": {
+        "key": "ac",
         "type": "zap",
         "alias": "Air Conditioner",
         "state": 0,
@@ -47,41 +42,47 @@ var initJson = [
         "owner": "all",
         "hidden": false
     },
-    {
+    "bedlight": {
+        "key": "bedlight",
         "type": "byebye",
         "alias": "Bedroom light",
         "state": 0,
         "outlet_number": "4",
         "owner": "nick",
         "hidden": false
-    },
-    {
-        "type": "byebye",
-        "alias": "null",
-        "state": 0,
-        "outlet_number": "5",
-        "owner": "nick",
-        "hidden": false
-    },
-    {
+    },    
+    "livinglamp": {
+        "key": "livinglamp",
         "type": "byebye",
         "alias": "Living lamp",
         "state": 0,
         "outlet_number": "6",
         "owner": "nick",
         "hidden": false
+    },
+    "fan": {
+        "key": "fan",
+        "type": "zap",
+        "alias": "Fan",
+        "state": 0,
+        "outlet_number": "5",
+        "owner": "nick",
+        "hidden": false
     }
-];
+};
 
 
-function updateJSONStates(outlet, state, jsonArray, callback){
+function updateJSONStates(key, state, jsonArray, callback){
   
-  if (parseInt(outlet) === 0) {
+  if (key === "all") {
     for (var i=1; i<jsonArray.length; i++) {
-      jsonArray[i].state = state;	
+      if (jsonArray[i].type === "byebye") {
+        jsonArray[i].state = state;   
+      }
+      
     }
 	} else {
-		jsonArray[outlet].state = state;    
+    jsonArray[key].state = state;    
 	}
 
 	updateJSONFile(jsonArray);

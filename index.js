@@ -40,7 +40,7 @@ function RemoteOutletControl(app, route) {
     });
 
     app.get("/api/v1/updateJSON", function(req, res) {
-        var outlet = req.param('outlet_number');
+        var outlet = req.param('outlet');
         var state = parseInt(req.param('state'));
         var type = req.param('type');
         

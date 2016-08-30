@@ -28,14 +28,15 @@ export default class OutletList extends Component {
     });
   }
 
-  updateState(index, outlet, state) {      
+  updateState(index, outlet, state) {
+  console.log(outlet);  
     $.ajax({
       url: '/api/v1/updateJSON',
       dataType: 'json',
       cache: false,
       data: {
         type: outlet.type,
-        outlet_number: outlet.outlet_number,
+        outlet: outlet.key,
         state: state
       },
       success: function(data) { 
@@ -53,17 +54,14 @@ export default class OutletList extends Component {
   render() {    
     return (
       <div>
-        {this.state.data.map(function(outlet, i) {
+        {Object.keys(this.state.data).map(function(key, i) {
+          var outlet = this.state.data[key];
           var boundClick = this.updateState.bind(this, i, outlet);
           
           return (
             <Outlet updateState={boundClick} 
-              alias={outlet.alias} 
-              is_loading={outlet.is_loading} 
-              state={outlet.state} 
-              outlet_number={i} 
-              type={outlet.type}
-              key={'item' + i}              
+              is_loading={outlet.is_loading}               
+              {...outlet}
               /> 
           );
         }, this)}
