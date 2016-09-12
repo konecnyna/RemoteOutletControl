@@ -20,6 +20,10 @@ export default class OutletList extends Component {
       dataType: 'json',
       cache: false,
       success: function(data) {
+        data = data.map( outlet => {
+          outlet.is_loading = false;
+          return outlet;          
+        }) 
         this.setState({data: data});
       }.bind(this),
       error: function(xhr, status, err) {
@@ -28,8 +32,11 @@ export default class OutletList extends Component {
     });
   }
 
-  updateState(index, outlet, state) {
-  console.log(outlet);  
+  updateState(index, outlet, state) {      
+    var loadingData = this.state.data.slice(); 
+    loadingData[index].is_loading = true;
+    this.setState(loadingData);
+    
     $.ajax({
       url: '/api/v1/updateJSON',
       dataType: 'json',
@@ -39,17 +46,33 @@ export default class OutletList extends Component {
         outlet: outlet.key,
         state: state
       },
-      success: function(data) { 
-        this.setState({data: data});
+      success: function(data) {
+        data = data.map((outlet, idx) => {          
+          if (index === idx) {
+            outlet.is_loading = false;            
+          } else {
+            outlet.is_loading = this.state.data[idx].is_loading;
+          }
+          return outlet;          
+        }); 
 
+        this.setState({data: data});        
       }.bind(this),
-      error: function(xhr, status, err) {  
-        this.setState({...this.state.data})        
+      error: function(xhr, status, err) { 
+        var data = this.state.data.map((outlet, idx) => {          
+          if (index === idx) {
+            outlet.is_loading = false;            
+          } else {
+            outlet.is_loading = this.state.data[idx].is_loading;
+          }
+          return outlet;          
+        }); 
+
+        this.setState(data);
         Materialize.toast('Something went wrong! Error: ' + err, 4000);        
       }.bind(this)
     });    
   }        
-
 
   render() {    
     return (

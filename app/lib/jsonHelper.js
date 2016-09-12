@@ -53,7 +53,7 @@ var initJson = {
     },    
     "livinglamp": {
         "key": "livinglamp",
-        "type": "byebye",
+        "type": "zap",
         "alias": "Living lamp",
         "state": 0,
         "outlet_number": "6",

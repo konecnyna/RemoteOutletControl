@@ -3,16 +3,10 @@ var imgSrc = './bulb.png';
 
 export default class Outlet extends Component {  
   constructor(props) {
-    super(props);    
-    this.state = {is_loading: false};    
+    super(props);       
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({is_loading: false});
-  }
-
-  outletRequest(state) {
-    this.setState({is_loading: true});
+  outletRequest(state) {    
     this.props.updateState(state);
   }  
 
@@ -32,7 +26,7 @@ export default class Outlet extends Component {
           </span>                    
         </div>
         <div className={parseInt(this.props.state) === 1 && !this.props.is_loading ? "card-action state-card-on" : "card-action state-card-off"}>
-          {this.state.is_loading ?
+          {this.props.is_loading ?
             <div className="progress">
               <div className="indeterminate yellow-spinner"></div>
             </div>
