@@ -1,5 +1,6 @@
-[
-    {
+{
+    "all": {
+        "key": "all",
         "type": "byebye",
         "alias": "All Outlets",
         "state": "0",
@@ -7,23 +8,17 @@
         "owner": "nick",
         "hidden": false
     },
-    {
-        "type": "byebye",
-        "alias": "null",
-        "state": 0,
-        "outlet_number": "1",
-        "owner": "all",
-        "hidden": false
-    },
-    {
-        "type": "byebye",
+    "spotlight": {
+        "key": "spotlight",
+        "type": "zap",
         "alias": "Spotlight",
         "state": 1,
         "outlet_number": "2",
         "owner": "nick",
         "hidden": false
     },
-    {
+    "ac": {
+        "key": "ac",
         "type": "zap",
         "alias": "Air Conditioner",
         "state": 1,
@@ -31,28 +26,31 @@
         "owner": "all",
         "hidden": false
     },
-    {
-        "type": "zap",
+    "bedlight": {
+        "key": "bedlight",
+        "type": "byebye",
         "alias": "Bedroom light",
         "state": 1,
         "outlet_number": "4",
         "owner": "nick",
         "hidden": false
     },
-    {
-        "type": "byebye",
-        "alias": "null",
-        "state": 0,
-        "outlet_number": "5",
-        "owner": "nick",
-        "hidden": false
-    },
-    {
-        "type": "byebye",
+    "livinglamp": {
+        "key": "livinglamp",
+        "type": "zap",
         "alias": "Living lamp",
         "state": 0,
         "outlet_number": "6",
         "owner": "nick",
         "hidden": false
+    },
+    "fan": {
+        "key": "fan",
+        "type": "zap",
+        "alias": "Fan",
+        "state": 0,
+        "outlet_number": "5",
+        "owner": "nick",
+        "hidden": false
     }
-]
+}

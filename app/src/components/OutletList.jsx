@@ -20,9 +20,9 @@ export default class OutletList extends Component {
       dataType: 'json',
       cache: false,
       success: function(data) {
-        data = data.map( outlet => {
-          outlet.is_loading = false;
-          return outlet;          
+        data = Object.keys(data).map( key => {
+          data[key].is_loading = false;
+          return data[key];          
         }) 
         this.setState({data: data});
       }.bind(this),
@@ -36,7 +36,10 @@ export default class OutletList extends Component {
     var loadingData = this.state.data.slice(); 
     loadingData[index].is_loading = true;
     this.setState(loadingData);
-    
+    console.log(outlet,"boobs");
+
+
+    console.log("fuck u");
     $.ajax({
       url: '/api/v1/updateJSON',
       dataType: 'json',
@@ -47,13 +50,13 @@ export default class OutletList extends Component {
         state: state
       },
       success: function(data) {
-        data = data.map((outlet, idx) => {          
+        data = Object.keys(data).map((key, idx) => {          
           if (index === idx) {
-            outlet.is_loading = false;            
+            data[key].is_loading = false;            
           } else {
-            outlet.is_loading = this.state.data[idx].is_loading;
+            data[key].is_loading = this.state.data[idx].is_loading;
           }
-          return outlet;          
+          return data[key];          
         }); 
 
         this.setState({data: data});        
