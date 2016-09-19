@@ -25,9 +25,9 @@ The wireless outlets are already IEEE certified and encapsulated. So there is no
 
 Usage
 ------
-Usage: `python ac_outlet_control.py <outlet> <state>`
+Usage: `python ac_outlet_control.py <type> <outlet> <state>`
 
-For example: `python ac_oulet_control.py 1 1` will turn outlet 1 on.
+For example: `python ac_oulet_control.py zap 1 1` will turn outlet 1 on.
 
 
 Hardware
