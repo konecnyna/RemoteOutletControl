@@ -1,4 +1,4 @@
-<img src="https://github.com/konecnyna/RemoteOutletControl/blob/master/screenshots/web.png" width="320" align="right" hspace="20" />
+<img src="https://github.com/konecnyna/RemoteOutletControl/blob/master/screenshots/web.png" width="420" align="right" hspace="20" />
 
 Radio controlled outlets.
 ===========
