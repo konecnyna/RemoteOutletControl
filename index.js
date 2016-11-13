@@ -10,7 +10,7 @@ var weather = require('./app/lib/weather.js');
 var jsonHelper = require('./app/lib/jsonHelper.js');
 var queue = seqqueue.createQueue(1000);
 
-var DEBUG = false;
+var DEBUG = true;
 
 var localPath = path.join(__dirname, 'python/');
 var pythonFile =  DEBUG ? 'test.py'  : 'ac_outlet_control.py';
@@ -42,9 +42,9 @@ function RemoteOutletControl(app, route) {
     app.get("/api/v1/updateJSON", function(req, res) {
         var outlet = req.param('outlet');
         var state = req.param('state');
-        if (state === 'on') {
+        if (state === 'on' || state === 'On') {
             state = 1;
-        } else if (state === 'off') {
+        } else if (state === 'off' || state === 'Off') {
             state = 0;
         } else {
             state = parseInt(state);
