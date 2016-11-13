@@ -41,7 +41,16 @@ function RemoteOutletControl(app, route) {
 
     app.get("/api/v1/updateJSON", function(req, res) {
         var outlet = req.param('outlet');
-        var state = parseInt(req.param('state'));
+        var state = req.param('state');
+        if (state === 'on') {
+            state = 1;
+        } else if (state === 'off') {
+            state = 0;
+        } else {
+            state = parseInt(state);
+        }
+        
+        
         var type = req.param('type');
         
         if (outlet && (state === 0 || state === 1) && type.length) {
