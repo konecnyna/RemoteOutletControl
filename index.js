@@ -10,7 +10,7 @@ var weather = require('./app/lib/weather.js');
 var jsonHelper = require('./app/lib/jsonHelper.js');
 var queue = seqqueue.createQueue(1000);
 
-var DEBUG = true;
+var DEBUG = false;
 
 var localPath = path.join(__dirname, 'python/');
 var pythonFile =  DEBUG ? 'test.py'  : 'ac_outlet_control.py';
