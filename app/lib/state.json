@@ -28,7 +28,7 @@
     },
     "bedlight": {
         "key": "bedlight",
-        "type": "byebye",
+        "type": "zap",
         "alias": "Bedroom light",
         "state": 1,
         "outlet_number": "4",
