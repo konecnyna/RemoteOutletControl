@@ -49,14 +49,11 @@ function RemoteOutletControl(app, route) {
         } else {
             state = parseInt(state);
         }
-        
-        
-        var type = req.param('type');
-        
-        if (outlet && (state === 0 || state === 1) && type.length) {
+
+        if (outlet && (state === 0 || state === 1)) {
             queue.push(
                 function(task) {
-                    runPythonScript(outlet, state, type, function(data, err) {
+                    runPythonScript(outlet, state, function(data, err) {
                         if (err) {
                             res.status(400);
                             res.json(err);
@@ -107,13 +104,17 @@ function RemoteOutletControl(app, route) {
     });
 
 
-    function runPythonScript(outlet, state, type, callback) {
+    function runPythonScript(outlet, state, callback) {
         jsonHelper.getJSON(null, function(jsonArray) {
             var PythonShell = require('python-shell');
             var options = {
                 scriptPath: localPath,
                 mode: 'text',
-                args: [type, jsonArray[outlet].outlet_number, state]
+                args: [
+                    jsonArray[outlet].type, 
+                    jsonArray[outlet].outlet_number, 
+                    state
+                ]
             };
 
             var pyshell = new PythonShell(pythonFile, options);
@@ -122,16 +123,16 @@ function RemoteOutletControl(app, route) {
                     callback(null, err);
                     return;
                 }
-                
+
                 jsonHelper.updateJSONStates(outlet, state, jsonArray, function(json_data) {
                     callback(json_data);
                 });
 
             });
-    
-            
+
+
         });
-        
+
     }
 
 }

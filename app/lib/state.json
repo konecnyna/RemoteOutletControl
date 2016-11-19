@@ -1,15 +1,6 @@
 {
-    "all": {
-        "key": "all",
-        "type": "byebye",
-        "alias": "All Outlets",
-        "state": "0",
-        "outlet_number": "0",
-        "owner": "nick",
-        "hidden": false
-    },
     "spotlight": {
-        "key": "spotlight",
+        "key": "Christmas Lights",
         "type": "zap",
         "alias": "Spotlight",
         "state": 1,
@@ -21,7 +12,7 @@
         "key": "ac",
         "type": "zap",
         "alias": "Air Conditioner",
-        "state": 1,
+        "state": 0,
         "outlet_number": "3",
         "owner": "all",
         "hidden": false
