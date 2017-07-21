@@ -1,8 +1,7 @@
 #!/bin/bash
-for(( i=1; i<=10; i++ ))
+for(( i=1; i<=30; i++ ))
 do
 	STATE=$((i%2))
 	echo $STATE
-	sudo python ac_outlet_control.py 6 $STATE;
-	sleep .5
+	sudo python ac_outlet_control.py zap 2 $STATE;
 done
