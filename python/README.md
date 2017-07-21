@@ -17,7 +17,7 @@ For example: `python ac_oulet_control.py 1 1` will turn outlet 1 on.
 Hardware
 --------
 1. Raspberry pi
-2. [AC outlets](http://amzn.com/B00F4AQKRI)
+2. [AC outlets](https://www.amazon.com/gp/product/B00DQELHBS)
 3. [433 MHz transmitter/receiver](http://www.amazon.com/RioRand-Superheterodyne-transmitter-receiver-3400/dp/B00HEDRHG6/ref=sr_1_8?ie=UTF8&qid=1420045056&sr=8-8&keywords=433mhz)
 4. Diligent Analog discover
 
