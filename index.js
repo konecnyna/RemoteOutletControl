@@ -5,6 +5,7 @@ var seqqueue = require('seq-queue');
 var fs = require('fs');
 var path = require('path');
 var express = require('express');
+var request = require('request');
 
 var weather = require('./app/lib/weather.js');
 var jsonHelper = require('./app/lib/jsonHelper.js');
@@ -48,6 +49,12 @@ function RemoteOutletControl(app, route) {
             state = 0;
         } else {
             state = parseInt(state);
+        }
+
+
+        if (outlet === "ac" && !req.query.is_auto_ac_request) {         
+            // Auto ac. Anytime ac state changes thats not auto turn off.
+            request({url: "3001:/api/v1/thermostat/update?state=off"}, function (error, response, body) {});   
         }
 
         if (outlet && (state === 0 || state === 1)) {

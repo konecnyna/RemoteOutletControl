@@ -24,6 +24,7 @@
     "python-shell": "^0.4.0",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
+    "request": "^2.81.0",
     "seq-queue": "0.0.5",
     "url-loader": "^0.5.7"
   },
