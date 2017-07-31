@@ -54,7 +54,11 @@ function RemoteOutletControl(app, route) {
 
         if (outlet === "ac" && !req.query.is_auto_ac_request) {         
             // Auto ac. Anytime ac state changes thats not auto turn off.
-            request({url: "/api/v1/thermostat/update?state=off"}, function (error, response, body) {});   
+            request({url: "http://localhost/api/v1/thermostat/update?state=off"}, function (error, response, body) {
+                if (error || response.statusCode !== 200) {
+                    console.error("Status code: " + reponse.statusCode, error);
+                }
+            });   
         }
 
 
