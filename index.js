@@ -19,14 +19,17 @@ var pythonFile =  DEBUG ? 'test.py'  : 'ac_outlet_control.py';
 
 
 var method = RemoteOutletControl.prototype;
-function RemoteOutletControl(app, route) {
+function RemoteOutletControl(app, secrets, route) {
     if (route) {
         ROOT_PATH = route;
     } else {
         ROOT_PATH = "/";
-    }
-
+    }    
     console.log("running on:" + ROOT_PATH);
+
+    if (!secrets) {
+        console.error("No secrets provided to remote outlet control");
+    }
 
     app.use(ROOT_PATH, express.static(path.join(__dirname, 'app/dist')));
 
@@ -54,7 +57,7 @@ function RemoteOutletControl(app, route) {
 
         if (outlet === "ac" && !req.query.is_auto_ac_request) {         
             // Auto ac. Anytime ac state changes thats not auto turn off.
-            request({url: "http://localhost/api/v1/thermostat/update?state=off"}, function (error, response, body) {
+            request({url: this.secrets.thermostat_update_endpoint}, function (error, response, body) {
                 if (error || response.statusCode !== 200) {
                     console.error("Status code: " + response.statusCode, error);
                 }

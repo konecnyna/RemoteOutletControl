@@ -39,7 +39,7 @@ app.listen(port, '0.0.0.0', function onStart(err) {
     if (err) {
         console.log(err);
     }
-    new OutletControl(app);
+    new OutletControl(app, {}, false);
     console.info('==> 🌎 Listening on port %s. Open up http://localhost:%s/ in your browser.', port, port);
 });
 
