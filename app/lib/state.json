@@ -1,6 +1,6 @@
 {
     "spotlight": {
-        "key": "Christmas Lights",
+        "key": "spotlight",
         "type": "zap",
         "alias": "Spotlight",
         "state": 1,
