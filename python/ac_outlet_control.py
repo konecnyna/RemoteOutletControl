@@ -14,7 +14,7 @@
 # E - Channel. The ac remote has two channels. 1-3 / 4-6
 # F - Parity bit.
 
-import wiringpi2 as wiringpi
+import wiringpi
 from time import sleep
 import sys
 import remotes
@@ -30,9 +30,9 @@ def main(args):
 		type = args[1]
 		input_outlet = int(args[2])
 		input_state = int(args[3])
-		
+
 		if type == remotes.ByeBye.NAME:
-			sendSignal(remotes.ByeBye(), input_outlet, input_state)	
+			sendSignal(remotes.ByeBye(), input_outlet, input_state)
 		elif type == remotes.Zap.NAME:
 			sendSignal(remotes.Zap(), input_outlet, input_state)
 		else:
