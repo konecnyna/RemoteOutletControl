@@ -44,8 +44,8 @@ function RemoteOutletControl(app, secrets, route) {
     });
 
     app.get("/api/v1/updateJSON", function(req, res) {
-        var outlet = req.param('outlet');
-        var state = req.param('state');
+        var outlet = req.query.outlet;
+        var state = req.query.state;
         if (state === 'on' || state === 'On') {
             state = 1;
         } else if (state === 'off' || state === 'Off') {
@@ -54,8 +54,7 @@ function RemoteOutletControl(app, secrets, route) {
             state = parseInt(state);
         }
 
-
-        if (outlet === "ac" && !req.query.is_auto_ac_request) {         
+        if (outlet === "ac" && req.query.is_auto_ac_request === undefined) {
             // Auto ac. Anytime ac state changes thats not auto turn off.
             request({url: this.secrets.thermostat_update_endpoint}, function (error, response, body) {
                 if (error || response.statusCode !== 200) {
@@ -63,7 +62,6 @@ function RemoteOutletControl(app, secrets, route) {
                 }
             });   
         }
-
 
         if (outlet && (state === 0 || state === 1)) {
             queue.push(
@@ -79,7 +77,7 @@ function RemoteOutletControl(app, secrets, route) {
                     });
                 },
                 function() {
-                    console.log('task timeout');
+                    //console.log('task timeout');
                 }, 5000);
 
 
@@ -109,7 +107,7 @@ function RemoteOutletControl(app, secrets, route) {
             });
 
         } catch (e) {
-            console.log(e);
+            console.log("hi",e);
             res.status(400);
             res.json({
                 error: "Invalid request"
