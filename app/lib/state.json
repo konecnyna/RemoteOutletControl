@@ -2,7 +2,7 @@
     "spotlight": {
         "key": "spotlight",
         "type": "zap",
-        "alias": "Spotlight",
+        "alias": "Christmas Lights",
         "state": 1,
         "outlet_number": "2",
         "owner": "nick",
@@ -29,7 +29,7 @@
     "livinglamp": {
         "key": "livinglamp",
         "type": "zap",
-        "alias": "Living lamp",
+        "alias": "Humidifier",
         "state": 0,
         "outlet_number": "1",
         "owner": "nick",
@@ -41,6 +41,15 @@
         "alias": "Fan",
         "state": 0,
         "outlet_number": "5",
+        "owner": "nick",
+        "hidden": false
+    },
+    "android_tv": {
+        "key": "android_tv",
+        "type": "zap",
+        "alias": "Android TV",
+        "state": 0,
+        "outlet_number": "4",
         "owner": "nick",
         "hidden": false
     }
