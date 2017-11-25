@@ -17,15 +17,6 @@
         "owner": "all",
         "hidden": false
     },
-    "bedlight": {
-        "key": "bedlight",
-        "type": "zap",
-        "alias": "Bedroom light",
-        "state": 1,
-        "outlet_number": "4",
-        "owner": "nick",
-        "hidden": false
-    },
     "livinglamp": {
         "key": "livinglamp",
         "type": "zap",
@@ -44,11 +35,11 @@
         "owner": "nick",
         "hidden": false
     },
-    "android_tv": {
-        "key": "android_tv",
+    "bedlight": {
+        "key": "bedlight",
         "type": "zap",
         "alias": "Android TV",
-        "state": 0,
+        "state": 1,
         "outlet_number": "4",
         "owner": "nick",
         "hidden": false
