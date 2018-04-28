@@ -37,12 +37,6 @@ function RemoteOutletControl(app, secrets, route) {
         jsonHelper.getJSON(res, null);
     });
 
-    app.get("/api/v1/weather", function(req, res) {
-        weather.getForecastIOWeather(function(data) {
-            res.json(data);
-        });
-    });
-
     app.get("/api/v1/updateJSON", function(req, res) {
         var outlet = req.query.outlet;
         var state = req.query.state;
