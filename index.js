@@ -48,10 +48,14 @@ function RemoteOutletControl(app, secrets, route) {
     }
 
     if (outlet === "ac" && req.query.is_auto_ac_request === undefined) {
+      let updateState = 'off';
+      if (state === 1) {
+        updateState = 'on';
+      }
       // Auto ac. Anytime ac state changes thats not auto turn off.
       request(
         {
-          url: `${secrets.thermostat_update_endpoint}?state=${req.query.state}`
+          url: `${secrets.thermostat_update_endpoint}?state=${updateState}`
         },
         function(error, response, body) {
           if (error || response.statusCode !== 200) {
