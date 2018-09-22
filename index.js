@@ -16,17 +16,9 @@ var DEBUG = false;
 var localPath = path.join(__dirname, "python/");
 var pythonFile = DEBUG ? "test.py" : "ac_outlet_control.py";
 
-let thinkEcoApi = false;
 
 var method = RemoteOutletControl.prototype;
 function RemoteOutletControl(app, secrets, route) {
-  if (thinkEcoApi === false) {
-    thinkEcoApi = new ThinkEcoAPI(
-      secrets.modlet_user,
-      secrets.modlet_pass,
-      console.log
-    );
-  }
   if (route) {
     ROOT_PATH = route;
   } else {
