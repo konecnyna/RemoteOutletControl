@@ -1,8 +1,8 @@
 {
     "spotlight": {
-        "key": "spotlight",
+        "key": "fireplace",
         "type": "zap",
-        "alias": "Christmas Lights",
+        "alias": "fireplace,
         "state": 1,
         "outlet_number": "2",
         "owner": "nick",
