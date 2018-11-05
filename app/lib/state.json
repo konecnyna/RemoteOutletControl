@@ -2,7 +2,7 @@
     "spotlight": {
         "key": "fireplace",
         "type": "zap",
-        "alias": "fireplace,
+        "alias": "fireplace",
         "state": 1,
         "outlet_number": "2",
         "owner": "nick",
