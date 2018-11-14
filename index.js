@@ -39,7 +39,8 @@ function RemoteOutletControl(app, secrets, route) {
   app.get("/api/v1/updateJSON", function(req, res) {
     var outlet = req.query.outlet;
     var state = req.query.state;
-    sendSignal(outlet, state, res);
+    var ac = req.query.is_auto_ac_request
+    sendSignal(outlet, state, ac, res);
   });
 
   app.post("/api/v1/update_outlets", function(req, res) {
@@ -67,36 +68,41 @@ function RemoteOutletControl(app, secrets, route) {
 
 
   app.get("/api/v1/nighttime", async (req, res) => {
-
+    sendSignal("ac", "on", false, res);
+    sendSignal("fan", "on", false, res);
+    sendSignal("fireplace", "off", false, res);
   });
 
   function runPythonScript(outlet, state, callback) {
-    jsonHelper.getJSON(null, function(jsonArray) {
-      var PythonShell = require("python-shell");
-      var options = {
-        scriptPath: localPath,
-        mode: "text",
-        args: [jsonArray[outlet].type, jsonArray[outlet].outlet_number, state]
-      };
+    try {
+      jsonHelper.getJSON(null, function(jsonArray) {
+        var PythonShell = require("python-shell");
+        var options = {
+          scriptPath: localPath,
+          mode: "text",
+          args: [jsonArray[outlet].type, jsonArray[outlet].outlet_number, state]
+        };
 
-      var pyshell = new PythonShell(pythonFile, options);
-      pyshell.end(function(err) {
-        if (err) {
-          callback(null, err);
-          return;
-        }
+        var pyshell = new PythonShell(pythonFile, options);
+        pyshell.end(function(err) {
+          if (err) {
+            callback(null, err);
+            return;
+          }
 
-        jsonHelper.updateJSONStates(outlet, state, jsonArray, function(
-          json_data
-        ) {
-          callback(json_data);
+          jsonHelper.updateJSONStates(outlet, state, jsonArray, function(
+            json_data
+          ) {
+            callback(json_data);
+          });
         });
       });
-    });
+    } catch(e) {
+      callback([])
+    }
   }
-}
 
-function sendSignal(outlet, state, res) {
+  function sendSignal(outlet, state, autoAc, res) {
       if (state === "on" || state === "On") {
       state = 1;
     } else if (state === "off" || state === "Off") {
@@ -105,7 +111,7 @@ function sendSignal(outlet, state, res) {
       state = parseInt(state);
     }
 
-    if (outlet === "ac" && req.query.is_auto_ac_request === undefined) {
+    if (outlet === "ac" && autoAc === undefined) {
       let updateState = 'off';
       if (state === 1) {
         updateState = 'on';
@@ -149,4 +155,6 @@ function sendSignal(outlet, state, res) {
       });
     }
 }
+}
+
 module.exports = RemoteOutletControl;
