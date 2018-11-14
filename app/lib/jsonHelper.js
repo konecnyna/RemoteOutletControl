@@ -24,10 +24,10 @@ var initJson = {
         "owner": "nick",
         "hidden": false
     },
-    "spotlight": {
-        "key": "spotlight",
+    "fireplace": {
+        "key": "fireplace",
         "type": "zap",
-        "alias": "Spotlight",
+        "alias": "Fireplace",
         "state": 0,
         "outlet_number": "2",
         "owner": "nick",
@@ -42,10 +42,10 @@ var initJson = {
         "owner": "all",
         "hidden": false
     },
-    "bedlight": {
-        "key": "bedlight",
+    "shield": {
+        "key": "shield",
         "type": "byebye",
-        "alias": "Bedroom light",
+        "alias": "Nvidia Shield",
         "state": 0,
         "outlet_number": "4",
         "owner": "nick",
