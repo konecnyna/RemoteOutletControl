@@ -44,7 +44,7 @@ var initJson = {
     },
     "shield": {
         "key": "shield",
-        "type": "byebye",
+        "type": "zap",
         "alias": "Nvidia Shield",
         "state": 0,
         "outlet_number": "4",
