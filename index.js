@@ -39,7 +39,65 @@ function RemoteOutletControl(app, secrets, route) {
   app.get("/api/v1/updateJSON", function(req, res) {
     var outlet = req.query.outlet;
     var state = req.query.state;
-    if (state === "on" || state === "On") {
+    sendSignal(outlet, state, res);
+  });
+
+  app.post("/api/v1/update_outlets", function(req, res) {
+    try {
+      messageObject = JSON.parse(req.body.outlets);
+      jsonfile.writeFile(jsonHelper.jsonFileName, messageObject, function(err) {
+        if (err) {
+          res.status(400);
+          res.json({
+            error: err
+          });
+        } else {
+          res.status(200);
+          res.json("Saved");
+        }
+      });
+    } catch (e) {
+      console.log("hi", e);
+      res.status(400);
+      res.json({
+        error: "Invalid request"
+      });
+    }
+  });
+
+
+  app.get("/api/v1/nighttime", async (req, res) => {
+
+  });
+
+  function runPythonScript(outlet, state, callback) {
+    jsonHelper.getJSON(null, function(jsonArray) {
+      var PythonShell = require("python-shell");
+      var options = {
+        scriptPath: localPath,
+        mode: "text",
+        args: [jsonArray[outlet].type, jsonArray[outlet].outlet_number, state]
+      };
+
+      var pyshell = new PythonShell(pythonFile, options);
+      pyshell.end(function(err) {
+        if (err) {
+          callback(null, err);
+          return;
+        }
+
+        jsonHelper.updateJSONStates(outlet, state, jsonArray, function(
+          json_data
+        ) {
+          callback(json_data);
+        });
+      });
+    });
+  }
+}
+
+function sendSignal(outlet, state, res) {
+      if (state === "on" || state === "On") {
       state = 1;
     } else if (state === "off" || state === "Off") {
       state = 0;
@@ -90,54 +148,5 @@ function RemoteOutletControl(app, secrets, route) {
         error: "Invalid request"
       });
     }
-  });
-
-  app.post("/api/v1/update_outlets", function(req, res) {
-    try {
-      messageObject = JSON.parse(req.body.outlets);
-      jsonfile.writeFile(jsonHelper.jsonFileName, messageObject, function(err) {
-        if (err) {
-          res.status(400);
-          res.json({
-            error: err
-          });
-        } else {
-          res.status(200);
-          res.json("Saved");
-        }
-      });
-    } catch (e) {
-      console.log("hi", e);
-      res.status(400);
-      res.json({
-        error: "Invalid request"
-      });
-    }
-  });
-
-  function runPythonScript(outlet, state, callback) {
-    jsonHelper.getJSON(null, function(jsonArray) {
-      var PythonShell = require("python-shell");
-      var options = {
-        scriptPath: localPath,
-        mode: "text",
-        args: [jsonArray[outlet].type, jsonArray[outlet].outlet_number, state]
-      };
-
-      var pyshell = new PythonShell(pythonFile, options);
-      pyshell.end(function(err) {
-        if (err) {
-          callback(null, err);
-          return;
-        }
-
-        jsonHelper.updateJSONStates(outlet, state, jsonArray, function(
-          json_data
-        ) {
-          callback(json_data);
-        });
-      });
-    });
-  }
 }
 module.exports = RemoteOutletControl;
