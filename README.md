@@ -43,8 +43,7 @@ First step is capturing the waveform. I had an USB o-scope from college that I u
 
 I first hooked up the 433 Mhz receiver to my Diligent o-scope. Wiring it as you you assume, 5v to 5v, Ground to Ground, and I hooked the positive scope probe to the data pin and the negative scope probe to ground. I couldn't easily trigger on rising edge or falling edge due to the amount of noise, NYC isn't the greatest place to test signal sniffing, even tried putting it in the microwave, a faraday cage, to decrease noise. I ended up having to just hold the remote button and make the time range big enough to capture a few signal periods. This was the result:
 
-Reference-style: 
-![alt text][oscope]
+<img src="https://github.com/konecnyna/RemoteOutletControl/raw/master/screenshots/signal_oscope.png" width="50%"/>
 
 [oscope]: https://github.com/konecnyna/rpi_ac_outlet_control/blob/master/screenshots/signal_oscope.png "Oscope signal"
 
